@@ -1,3 +1,5 @@
+import matplotlib.pyplot as plt
+
 def primes_sieve(limit):
     # Sieve of Eratosthenes algorithm to generate primes
     is_prime = [True] * limit
@@ -28,6 +30,14 @@ def draw_ulam_spiral(n):
     return spiral
 
 spiral = draw_ulam_spiral(100)
-for x, y, color in spiral:
-    print(f"({x}, {y}) = {color}")
 
+x_coords = [x for x, y, color in spiral if color == "blue"]
+y_coords = [y for x, y, color in spiral if color == "blue"]
+
+print(x_coords)
+print(y_coords)
+# Plot the points using Matplotlib
+plt.scatter(x_coords, y_coords)
+
+# Show the plot
+plt.show()
